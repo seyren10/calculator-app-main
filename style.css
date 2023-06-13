@@ -1,0 +1,313 @@
+:root {
+  /* THEME 1 */
+  --t1-bg-main: hsl(222, 26%, 31%);
+  --t1-bg-toggle: hsl(223, 31%, 20%);
+  --t1-bg-screen: hsl(224, 36%, 15%);
+
+  --t1-keys-bg: hsl(225, 21%, 49%);
+  --t1-keys-shadow: hsl(224, 28%, 35%);
+  --t1-keys-primary: hsl(6, 63%, 50%);
+  --t1-keys-primary-dark: hsl(6, 70%, 34%);
+  --t1-keys-secondary: hsl(30, 25%, 89%);
+  --t1-keys-secondary-dark: hsl(28, 16%, 65%);
+  --t1-keys-hover-primary: hsl(6, 63%, 60%);
+  --t1-keys-hover-secondary: hsl(225, 21%, 59%);
+
+  --t1-text-dark: hsl(221, 14%, 31%);
+  --t1-text-light: hsl(0, 0%, 100%);
+  --t1-text-white: hsl(0, 0%, 100%);
+
+  /* THEME 2 */
+  --t2-bg-main: hsl(0, 0%, 90%);
+  --t2-bg-toggle: hsl(0, 5%, 81%);
+  --t2-bg-screen: hsl(0, 0%, 93%);
+
+  --t2-keys-bg: hsl(185, 42%, 37%);
+  --t2-keys-shadow: hsl(185, 58%, 25%);
+  --t2-keys-primary: hsl(25, 98%, 40%);
+  --t2-keys-primary-dark: hsl(25, 99%, 27%);
+  --t2-keys-secondary: hsl(45, 7%, 89%);
+  --t2-keys-secondary-dark: hsl(35, 11%, 61%);
+  --t2-keys-hover-primary: hsl(25, 98%, 50%);
+  --t2-keys-hover-secondary: hsl(185, 42%, 47%);
+
+  --t2-text-dark: hsl(60, 10%, 19%);
+  --t2-text-light: hsl(0, 0%, 100%);
+  --t2-text-white: hsl(0, 0%, 100%);
+
+  /* THEME 3 */
+  --t3-bg-main: hsl(268, 75%, 9%);
+  --t3-bg-toggle: hsl(268, 71%, 12%);
+  --t3-bg-screen: hsl(268, 71%, 12%);
+
+  --t3-keys-bg: hsl(281, 89%, 26%);
+  --t3-keys-shadow: hsl(285, 91%, 52%);
+  --t3-keys-primary: hsl(176, 100%, 44%);
+  --t3-keys-primary-dark: hsl(177, 92%, 70%);
+  --t3-keys-secondary: hsl(268, 47%, 21%);
+  --t3-keys-secondary-dark: hsl(290, 70%, 36%);
+  --t3-keys-hover-primary: hsl(177, 92%, 80%);
+  --t3-keys-hover-secondary: hsl(281, 89%, 36%);
+
+  --t3-text-light: hsl(52, 100%, 62%);
+  --t3-text-dark: hsl(198, 20%, 13%);
+  --t3-text-white: hsl(0, 0%, 100%);
+
+  /* UTILITIES */
+  --border-radius: 0.3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-white);
+  transition: background-color 500ms, color 500ms;
+}
+
+main {
+  padding: 1rem;
+  --fs: 18px;
+}
+@media (min-width: 35em) {
+  main {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-content: center;
+
+    --fs: 32px;
+  }
+}
+
+/* 
+============================
+HEADER section
+============================ */
+section.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-block-end: 1.5rem;
+}
+
+.theme-picker {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  font-size: 0.7rem;
+}
+
+.multi-radio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: fit-content;
+  justify-items: center;
+  gap: 0.3rem;
+}
+
+.radio-group {
+  grid-column: 1 / 4;
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--bg-toggle);
+  padding: 0.3em 0.5em;
+  border-radius: 1rem;
+
+  position: relative;
+}
+
+.radio-group::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(0%);
+  width: 0.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--keys-primary);
+  pointer-events: none;
+  transition: transform 500ms, background-color 500ms;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 0.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0;
+}
+.radio-group:has(#light:checked)::after {
+  transform: translateY(-50%) translateX(1.3rem);
+}
+.radio-group:has(#dark:checked)::after {
+  transform: translateY(-50%) translateX(2.8rem);
+}
+
+input[type="radio"],
+label {
+  cursor: pointer;
+}
+
+/* input[type="radio"]:checked:hover {
+  background-color: var(--keys-primary);
+} */
+
+:root:has(#neutral:checked) {
+  /* MAIN COLOR */
+  --bg-main: var(--t1-bg-main);
+  --bg-toggle: var(--t1-bg-toggle);
+  --bg-screen: var(--t1-bg-screen);
+
+  --keys-bg: var(--t1-keys-bg);
+  --keys-shadow: var(--t1-keys-shadow);
+  --keys-primary: var(--t1-keys-primary);
+  --keys-primary-dark: var(--t1-keys-primary-dark);
+  --keys-secondary: var(--t1-keys-secondary);
+  --keys-secondary-dark: var(--t1-keys-secondary-dark);
+  --keys-hover-primary: var(--t1-keys-hover-primary);
+  --keys-hover-secondary: var(--t1-keys-hover-secondary);
+  --keys-hover-number: var(--t1-text-white);
+
+  --text-dark: var(--t1-text-dark);
+  --text-white: var(--t1-text-white);
+}
+:root:has(#light:checked) {
+  /* MAIN COLOR */
+  --bg-main: var(--t2-bg-main);
+  --bg-toggle: var(--t2-bg-toggle);
+  --bg-screen: var(--t2-bg-screen);
+
+  --keys-bg: var(--t2-keys-bg);
+  --keys-shadow: var(--t2-keys-shadow);
+  --keys-primary: var(--t2-keys-primary);
+  --keys-primary-dark: var(--t2-keys-primary-dark);
+  --keys-secondary: var(--t2-keys-secondary);
+  --keys-secondary-dark: var(--t2-keys-secondary-dark);
+  --keys-hover-primary: var(--t2-keys-hover-primary);
+  --keys-hover-secondary: var(--t2-keys-hover-secondary);
+  --keys-hover-number: var(--t2-text-white);
+
+  --text-dark: var(--t2-text-dark);
+  --text-white: var(--t2-text-dark);
+  --text-light: var(--t2-text-white);
+}
+:root:has(#dark:checked) {
+  /* MAIN COLOR */
+  --bg-main: var(--t3-bg-main);
+  --bg-toggle: var(--t3-bg-toggle);
+  --bg-screen: var(--t3-bg-screen);
+
+  --keys-bg: var(--t3-keys-bg);
+  --keys-shadow: var(--t3-keys-shadow);
+  --keys-primary: var(--t3-keys-primary);
+  --keys-primary-dark: var(--t3-keys-primary-dark);
+  --keys-secondary: var(--t3-keys-secondary);
+  --keys-secondary-dark: var(--t3-keys-secondary-dark);
+  --keys-hover-primary: var(--t3-keys-hover-primary);
+  --keys-hover-secondary: var(--t3-keys-hover-secondary);
+  --keys-hover-number: var(--t3-keys-bg);
+
+  --text-dark: var(--t3-text-light);
+  --text-white: var(--t3-text-light);
+  --text-light: var(--t3-text-white);
+}
+
+:root:has(#dark:checked) #equals {
+  color: black;
+}
+/* ============================
+HEADER section END
+============================ */
+
+/* ============================
+SCREEN SECTION
+============================ */
+.screen {
+  background-color: var(--bg-screen);
+  padding: 1rem;
+  font-size: var(--fs);
+  border-radius: var(--border-radius);
+  margin-block-end: 1rem;
+  text-align: end;
+  min-height: 4rem;
+}
+
+/* ============================
+SCREEN SECTION END
+============================ */
+
+/* ============================
+FUNCTION SECTION START
+============================ */
+
+.functions {
+  background-color: var(--bg-toggle);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+#reset {
+  grid-column: span 2;
+}
+#equals {
+  background-color: var(--keys-primary);
+  box-shadow: 0 0.2rem var(--keys-primary-dark);
+  grid-column: span 2;
+}
+#equals:hover,
+#equals:active {
+  background-color: var(--keys-hover-primary);
+}
+
+.btn {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--fs);
+  padding: 0.5rem 1rem;
+  border-radius: inherit;
+  border: none;
+  box-shadow: 0 0.2rem var(--keys-shadow);
+  background-color: var(--keys-secondary);
+  color: var(--text-light);
+}
+.btn:hover,
+.btn:active {
+  background-color: var(--keys-hover-number);
+}
+.btn--theme {
+  background-color: var(--keys-bg);
+}
+
+.btn--theme:hover,
+.btn--theme:active {
+  background-color: var(--keys-hover-secondary);
+}
+.btn.btn-number {
+  color: var(--text-dark);
+  box-shadow: 0 0.2rem var(--keys-secondary-dark);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  inset: auto 0 0;
+}
+.attribution a {
+  color: rgb(131, 131, 131);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Calculator app</title>
+   
+    <!-- My custom imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="header">
+        <h1 class="header_title">calc</h1>
+        <div class="theme-picker">
+          <div>THEME</div>
+          <form action="" class="multi-radio">
+            <label for="neutral">1</label>
+            <label for="light">2</label>
+            <label for="dark">3</label>
+            <div class="radio-group">
+              <input type="radio" name="theme" id="neutral" checked />
+              <input type="radio" name="theme" id="light" />
+              <input type="radio" name="theme" id="dark" />
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="screen">
+        <div id="screen"></div>
+      </section>
+      <section class="functions">
+        <button class="btn btn-number">7</button>
+        <button class="btn btn-number">8</button>
+        <button class="btn btn-number">9</button>
+        <button class="btn btn--theme" id="delete">DEL</button>
+
+        <button class="btn btn-number">4</button>
+        <button class="btn btn-number">5</button>
+        <button class="btn btn-number">6</button>
+        <button class="btn btn-number" id="addtion">+</button>
+
+        <button class="btn btn-number">1</button>
+        <button class="btn btn-number">2</button>
+        <button class="btn btn-number">3</button>
+        <button class="btn btn-number" id="subtraction">-</button>
+
+        <button class="btn btn-number" id="point">.</button>
+        <button class="btn btn-number">0</button>
+        <button class="btn btn-number" id="division">/</button>
+        <button class="btn btn-number" id="multiplication">x</button>
+
+        <button class="btn btn--theme" id="reset">RESET</button>
+        <button class="btn" id="equals">=</button>
+      </section>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://www.facebook.com/rv.gagarin" target="_blank">Roy Victor Gagarin</a>.
+      </div>
+    </main>
+  </body>
+</html>
